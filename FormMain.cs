@@ -140,10 +140,10 @@ namespace Schedule_I_Save_Fixer {
 				new FixActionDefinition.MissingTime(),
 				new FixActionDefinition.MissingPlayer(),
 				new FixActionDefinition.MissingBusinessLaunderingStation(),
-				new FixActionDefinition.MissingNpcCustomerData(),
+				// new FixActionDefinition.MissingNpcCustomerData(),
 				new FixActionDefinition.MissingNpcNpc(),
-				new FixActionDefinition.MissingNpcRelationship(),
-				new FixActionDefinition.MissingNpcSupplierMessages(this.supplierNames),
+				// new FixActionDefinition.MissingNpcRelationship(),
+				// new FixActionDefinition.MissingNpcSupplierMessages(this.supplierNames),
 				// IMPORTANT: InvalidJson should be last so it's lowest precedence.
 				new FixActionDefinition.InvalidJson(),
 			};

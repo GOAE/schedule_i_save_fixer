@@ -93,7 +93,7 @@ namespace Schedule_I_Save_Fixer {
 			checkboxCell.Value = checkboxCell.TrueValue;
 			result.Cells.Add(checkboxCell);
 			var filePathCell = new DataGridViewTextBoxCell();
-			filePathCell.Value = this.filePath;
+			filePathCell.Value = this.filePath.Substring(this.saveSlotPath.Length);
 			result.Cells.Add(filePathCell);
 			filePathCell.ReadOnly = true;
 			var fixActionCell = new DataGridViewTextBoxCell();
@@ -144,7 +144,7 @@ namespace Schedule_I_Save_Fixer {
 
 		protected static bool IsValidJson(string filePath) {
 			try {
-				return !File.Exists(filePath) || (new System.IO.FileInfo(filePath)).Length > 0;
+				return File.Exists(filePath) && (new System.IO.FileInfo(filePath)).Length > 0;
 			} catch {
 				return false;
 			}
@@ -168,7 +168,7 @@ namespace Schedule_I_Save_Fixer {
 				return false;
 			}
 			try {
-				File.Copy(recoverFromFilePath, filePath, false);
+				File.Copy(recoverFromFilePath, filePath, true);
 				errorMessage = "";
 				return true;
 			} catch (Exception ex) {
