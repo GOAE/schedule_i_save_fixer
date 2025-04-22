@@ -1,0 +1,12 @@
+{
+    "DataType": "SupplierData",
+    "DataVersion": 0,
+    "GameVersion": "0.3.4f8",
+    "ID": "albert_hoover",
+    "timeSinceMeetingStart": -1,
+    "timeSinceLastMeetingEnd": 62483,
+    "debt": 0.0,
+    "minsUntilDeadDropReady": -1,
+    "deaddropItems": [],
+    "debtReminderSent": false
+}

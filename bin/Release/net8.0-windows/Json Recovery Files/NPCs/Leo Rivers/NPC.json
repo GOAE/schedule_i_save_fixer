@@ -1,0 +1,25 @@
+{
+    "DataType": "DealerData",
+    "DataVersion": 0,
+    "GameVersion": "0.3.4f8",
+    "ID": "leo_rivers",
+    "Recruited": false,
+    "AssignedCustomerIDs": [],
+    "ActiveContractGUIDs": [],
+    "Cash": 0.0,
+    "OverflowItems": {
+        "Items": [
+            "{\"DataType\":\"ItemData\",\"DataVersion\":0,\"GameVersion\":\"0.3.4f8\",\"ID\":\"\",\"Quantity\":0}",
+            "{\"DataType\":\"ItemData\",\"DataVersion\":0,\"GameVersion\":\"0.3.4f8\",\"ID\":\"\",\"Quantity\":0}",
+            "{\"DataType\":\"ItemData\",\"DataVersion\":0,\"GameVersion\":\"0.3.4f8\",\"ID\":\"\",\"Quantity\":0}",
+            "{\"DataType\":\"ItemData\",\"DataVersion\":0,\"GameVersion\":\"0.3.4f8\",\"ID\":\"\",\"Quantity\":0}",
+            "{\"DataType\":\"ItemData\",\"DataVersion\":0,\"GameVersion\":\"0.3.4f8\",\"ID\":\"\",\"Quantity\":0}",
+            "{\"DataType\":\"ItemData\",\"DataVersion\":0,\"GameVersion\":\"0.3.4f8\",\"ID\":\"\",\"Quantity\":0}",
+            "{\"DataType\":\"ItemData\",\"DataVersion\":0,\"GameVersion\":\"0.3.4f8\",\"ID\":\"\",\"Quantity\":0}",
+            "{\"DataType\":\"ItemData\",\"DataVersion\":0,\"GameVersion\":\"0.3.4f8\",\"ID\":\"\",\"Quantity\":0}",
+            "{\"DataType\":\"ItemData\",\"DataVersion\":0,\"GameVersion\":\"0.3.4f8\",\"ID\":\"\",\"Quantity\":0}",
+            "{\"DataType\":\"ItemData\",\"DataVersion\":0,\"GameVersion\":\"0.3.4f8\",\"ID\":\"\",\"Quantity\":0}"
+        ]
+    },
+    "HasBeenRecommended": true
+}

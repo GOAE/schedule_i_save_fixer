@@ -1,0 +1,38 @@
+{
+    "DataType": "DealerData",
+    "DataVersion": 0,
+    "GameVersion": "0.3.4f8",
+    "ID": "brad_crosby",
+    "Recruited": true,
+    "AssignedCustomerIDs": [
+        "elizabeth_homley",
+        "george_greene",
+        "greg_fliggle",
+        "jennifer_rivera",
+        "kathy_henderson",
+        "keith_wagner",
+        "kyle_cooley",
+        "ludwig_meyer"
+    ],
+    "ActiveContractGUIDs": [
+        "4fe37a0e-3532-41dc-9109-8ed7c8f6c245",
+        "ee0e1a94-d8bd-49bd-ac33-4138aa900f41",
+        "903c4984-d021-487d-87d9-5318961fa7fa"
+    ],
+    "Cash": 1630.4000244140625,
+    "OverflowItems": {
+        "Items": [
+            "{\"DataType\":\"ItemData\",\"DataVersion\":0,\"GameVersion\":\"0.3.4f8\",\"ID\":\"\",\"Quantity\":0}",
+            "{\"DataType\":\"ItemData\",\"DataVersion\":0,\"GameVersion\":\"0.3.4f8\",\"ID\":\"\",\"Quantity\":0}",
+            "{\"DataType\":\"ItemData\",\"DataVersion\":0,\"GameVersion\":\"0.3.4f8\",\"ID\":\"\",\"Quantity\":0}",
+            "{\"DataType\":\"ItemData\",\"DataVersion\":0,\"GameVersion\":\"0.3.4f8\",\"ID\":\"\",\"Quantity\":0}",
+            "{\"DataType\":\"ItemData\",\"DataVersion\":0,\"GameVersion\":\"0.3.4f8\",\"ID\":\"\",\"Quantity\":0}",
+            "{\"DataType\":\"ItemData\",\"DataVersion\":0,\"GameVersion\":\"0.3.4f8\",\"ID\":\"\",\"Quantity\":0}",
+            "{\"DataType\":\"ItemData\",\"DataVersion\":0,\"GameVersion\":\"0.3.4f8\",\"ID\":\"\",\"Quantity\":0}",
+            "{\"DataType\":\"ItemData\",\"DataVersion\":0,\"GameVersion\":\"0.3.4f8\",\"ID\":\"\",\"Quantity\":0}",
+            "{\"DataType\":\"ItemData\",\"DataVersion\":0,\"GameVersion\":\"0.3.4f8\",\"ID\":\"\",\"Quantity\":0}",
+            "{\"DataType\":\"ItemData\",\"DataVersion\":0,\"GameVersion\":\"0.3.4f8\",\"ID\":\"\",\"Quantity\":0}"
+        ]
+    },
+    "HasBeenRecommended": true
+}

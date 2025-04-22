@@ -1,0 +1,10 @@
+{
+    "DataType": "GameData",
+    "DataVersion": 0,
+    "GameVersion": "0.3.4f8",
+    "OrganisationName": "Recovered",
+    "Seed": 319475807,
+    "Settings": {
+        "ConsoleEnabled": false
+    }
+}

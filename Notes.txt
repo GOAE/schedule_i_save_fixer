@@ -1,0 +1,2 @@
+﻿Finish implementing Dock Warehouse property (missing template file)
+Implement vehicle ownership

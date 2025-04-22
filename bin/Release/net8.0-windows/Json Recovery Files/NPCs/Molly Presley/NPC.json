@@ -1,0 +1,34 @@
+{
+    "DataType": "DealerData",
+    "DataVersion": 0,
+    "GameVersion": "0.3.4f8",
+    "ID": "molly_presley",
+    "Recruited": true,
+    "AssignedCustomerIDs": [
+        "austin_steiner",
+        "charles_rowland",
+        "chloe_bowers",
+        "dean_webster",
+        "doris_lubbin",
+        "geraldine_poon",
+        "jerry_montero",
+        "jessi_waters"
+    ],
+    "ActiveContractGUIDs": [],
+    "Cash": 974.4000244140625,
+    "OverflowItems": {
+        "Items": [
+            "{\"DataType\":\"ItemData\",\"DataVersion\":0,\"GameVersion\":\"0.3.4f8\",\"ID\":\"\",\"Quantity\":0}",
+            "{\"DataType\":\"ItemData\",\"DataVersion\":0,\"GameVersion\":\"0.3.4f8\",\"ID\":\"\",\"Quantity\":0}",
+            "{\"DataType\":\"ItemData\",\"DataVersion\":0,\"GameVersion\":\"0.3.4f8\",\"ID\":\"\",\"Quantity\":0}",
+            "{\"DataType\":\"ItemData\",\"DataVersion\":0,\"GameVersion\":\"0.3.4f8\",\"ID\":\"\",\"Quantity\":0}",
+            "{\"DataType\":\"ItemData\",\"DataVersion\":0,\"GameVersion\":\"0.3.4f8\",\"ID\":\"\",\"Quantity\":0}",
+            "{\"DataType\":\"ItemData\",\"DataVersion\":0,\"GameVersion\":\"0.3.4f8\",\"ID\":\"\",\"Quantity\":0}",
+            "{\"DataType\":\"ItemData\",\"DataVersion\":0,\"GameVersion\":\"0.3.4f8\",\"ID\":\"\",\"Quantity\":0}",
+            "{\"DataType\":\"ItemData\",\"DataVersion\":0,\"GameVersion\":\"0.3.4f8\",\"ID\":\"\",\"Quantity\":0}",
+            "{\"DataType\":\"ItemData\",\"DataVersion\":0,\"GameVersion\":\"0.3.4f8\",\"ID\":\"\",\"Quantity\":0}",
+            "{\"DataType\":\"ItemData\",\"DataVersion\":0,\"GameVersion\":\"0.3.4f8\",\"ID\":\"\",\"Quantity\":0}"
+        ]
+    },
+    "HasBeenRecommended": true
+}

@@ -1,0 +1,12 @@
+{
+    "DataType": "SupplierData",
+    "DataVersion": 0,
+    "GameVersion": "0.3.4f8",
+    "ID": "salvador_moreno",
+    "timeSinceMeetingStart": -1,
+    "timeSinceLastMeetingEnd": 61411,
+    "debt": 0.0,
+    "minsUntilDeadDropReady": -1,
+    "deaddropItems": [],
+    "debtReminderSent": false
+}

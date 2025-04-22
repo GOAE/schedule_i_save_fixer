@@ -1,0 +1,10 @@
+/.vs
+/obj
+/bin/Release/net8.0-windows/*.json
+/bin/Release/net8.0-windows/*.pdb
+/bin/Release/net8.0-windows/*.exe
+/bin/Release/net8.0-windows/*.dll
+/bin/Debug/net8.0-windows/*.json
+/bin/Debug/net8.0-windows/*.dll
+/bin/Debug/net8.0-windows/*.exe
+/bin/Debug/net8.0-windows/*.pdb

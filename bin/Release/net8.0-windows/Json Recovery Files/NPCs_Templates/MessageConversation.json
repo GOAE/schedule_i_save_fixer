@@ -1,0 +1,17 @@
+{
+    "DataType": "MSGConversationData",
+    "DataVersion": 0,
+    "GameVersion": "0.3.4f8",
+    "ConversationIndex": 100,
+    "Read": true,
+    "MessageHistory": [
+        {
+            "Sender": 0,
+            "MessageID": 2141837531,
+            "Text": "Recovered",
+            "EndOfChain": true
+        }
+    ],
+    "ActiveResponses": [],
+    "IsHidden": false
+}

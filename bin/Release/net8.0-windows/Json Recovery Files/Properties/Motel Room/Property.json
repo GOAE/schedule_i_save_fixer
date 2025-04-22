@@ -1,0 +1,13 @@
+{
+    "DataType": "PropertyData",
+    "DataVersion": 0,
+    "GameVersion": "0.3.4f8",
+    "PropertyCode": "motelroom",
+    "IsOwned": false,
+    "SwitchStates": [
+        true
+    ],
+    "ToggleableStates": [
+        true
+    ]
+}

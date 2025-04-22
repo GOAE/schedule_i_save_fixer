@@ -1,0 +1,42 @@
+{
+    "DataType": "CustomerData",
+    "DataVersion": 0,
+    "GameVersion": "0.3.4f8",
+    "Dependence": 1.0,
+    "PurchaseableProducts": [
+        "islandcrack"
+    ],
+    "ProductAffinities": [
+        1.0,
+        1.0,
+        0.15000000596046449
+    ],
+    "TimeSinceLastDealCompleted": 477,
+    "TimeSinceLastDealOffered": 494,
+    "OfferedDeals": 61,
+    "CompletedDeals": 51,
+    "IsContractOffered": false,
+    "OfferedContract": {
+        "Payment": 0.0,
+        "Products": {
+            "entries": []
+        },
+        "DeliveryLocationGUID": "",
+        "DeliveryWindow": {
+            "IsEnabled": false,
+            "WindowStartTime": 1200,
+            "WindowEndTime": 1800
+        },
+        "Expires": false,
+        "ExpiresAfter": 0,
+        "PickupScheduleIndex": 0,
+        "IsCounterOffer": false
+    },
+    "OfferedContractTime": {
+        "elapsedDays": 65,
+        "time": 830
+    },
+    "TimeSincePlayerApproached": 60694,
+    "TimeSinceInstantDealOffered": 37958,
+    "HasBeenRecommended": false
+}
