@@ -148,6 +148,7 @@ namespace Schedule_I_Save_Fixer {
 				new FixActionDefinition.InvalidJson(),
 			};
 
+			this.Text += " v" + System.Diagnostics.FileVersionInfo.GetVersionInfo(System.Reflection.Assembly.GetExecutingAssembly().Location).FileVersion;
 			this.cbSaveSlot.DataSource = this.saveSlots;
 			this.cbCustomerRegion.SelectedIndex = 0;
 			this.cbCustomerRegionRelationship.SelectedIndex = 0;
