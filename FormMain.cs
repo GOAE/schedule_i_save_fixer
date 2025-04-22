@@ -98,8 +98,10 @@ namespace Schedule_I_Save_Fixer {
 				"Karen Kennedy",
 			}),
 		};
-		/// <summary>All customer names.</summary>
-		private List<string> customers = new();
+		/// <summary>All customers names.</summary>
+		private List<string> customers;
+		/// <summary>All customer regions, each value in this array correspond to the element in this.customers at the same index.</summary>
+		private List<string> customerRegions;
 		/// <summary>All supplier names.</summary>
 		private string[] supplierNames = new string[] {
 			"Albert Hoover",
@@ -123,16 +125,23 @@ namespace Schedule_I_Save_Fixer {
 		};
 		// TODO: vehicleNames
 
+		//
+		// Construction Methods
+		//
+		/// <summary>Constructs this class.</summary>
 		public FormMain() {
 			InitializeComponent();
 
+			var tempCustomers = new List<Tuple<string, string>>();
 			foreach (var region in this.customersByRegion) {
 				this.cbCustomerRegion.Items.Add(region.name);
 				foreach (var customer in region.customers) {
-					this.customers.Add(customer);
+					tempCustomers.Add(new Tuple<string, string>(customer, region.name));
 				}
 			}
-			this.customers.Sort();
+			var sortedCustomers = from entry in tempCustomers orderby entry.Item1 ascending select entry;
+			this.customers = (from entry in sortedCustomers select entry.Item1).ToList();
+			this.customerRegions = (from entry in sortedCustomers select entry.Item2).ToList();
 			this.fixActionDefinitions = new FixActionDefinition[] {
 				new FixActionDefinition.MissingCritical(),
 				new FixActionDefinition.MissingGame(),
@@ -152,10 +161,13 @@ namespace Schedule_I_Save_Fixer {
 			this.cbSaveSlot.DataSource = this.saveSlots;
 			this.cbCustomerRegion.SelectedIndex = 0;
 			this.cbCustomerRegionRelationship.SelectedIndex = 0;
-			foreach (var customer in this.customers) {
+			for (int i = 0; i < this.customers.Count; ++i) {
 				var row = new DataGridViewRow();
+				var region = new DataGridViewTextBoxCell();
+				region.Value = this.customerRegions[i];
+				row.Cells.Add(region);
 				var name = new DataGridViewTextBoxCell();
-				name.Value = customer;
+				name.Value = this.customers[i];
 				row.Cells.Add(name);
 				var relationship = new DataGridViewComboBoxCell();
 				foreach (var item in this.cbCustomerRegionRelationship.Items) {
@@ -220,7 +232,9 @@ namespace Schedule_I_Save_Fixer {
 		//
 		// Form Methods
 		//
-
+		/// <summary>The callback that is invoked when the form loads</summary>
+		/// <param name="sender">The sender object.</param>
+		/// <param name="e">The event arguments.</param>
 		private void FormMain_Load(object sender, EventArgs e) {
 			try {
 				if (File.Exists("Settings.json")) {
@@ -231,17 +245,17 @@ namespace Schedule_I_Save_Fixer {
 						}
 					}
 				}
-			} catch {}
+			} catch { }
 			this.fetchSaveSlots();
 		}
-
+		/// <summary>Saves the settings of this application.</summary>
 		private void saveSettings() {
 			try {
 				var json = new JsonObject {
 					{ "saves_path", this.tbSavePath.Text },
 				};
 				File.WriteAllText("Settings.json", json.ToJsonString());
-			} catch {}
+			} catch { }
 		}
 
 		//
@@ -306,6 +320,19 @@ namespace Schedule_I_Save_Fixer {
 			}
 		}
 
+		private void btnAutoFixBackups_Click(object sender, EventArgs e) {
+			Debug.Assert(this.cbSaveSlot.SelectedItem != null);
+			try {
+				var backupsPath = ((SaveSlot)this.cbSaveSlot.SelectedItem).getBackupsDirectory();
+				if (Directory.Exists(backupsPath)) {
+					Process.Start("explorer.exe", backupsPath);
+				} else {
+					MessageBox.Show("The backups directory does not exist. Are you sure a backup has been made for the chosen save slot?",
+						"No backups.", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+				}
+			} catch { }
+		}
+
 		private void btnFix_Click(object sender, EventArgs e) {
 			Debug.Assert(this.fixActions != null);
 			Debug.Assert(this.cbSaveSlot.SelectedItem != null);
@@ -362,7 +389,7 @@ namespace Schedule_I_Save_Fixer {
 				if (!fixAction.attemptedFix && ((DataGridViewCheckBoxCell)this.dgvFixActions.Rows[i].Cells[0]).Value == ((DataGridViewCheckBoxCell)this.dgvFixActions.Rows[i].Cells[0]).TrueValue
 						&& (fixAction.fixCriteria != FixActionCriteria.DeleteFile || this.cbEnableFileDeletion.Checked)) {
 					fixAction.fix();
-					fixAction.updateDgvRowResult(this.dgvFixActions.Rows[i]);
+					fixAction.updateDgvRowResult(this.dgvFixActions.Rows[i], this.colFixActionsFixResult.Index);
 				}
 			}
 		}
@@ -442,7 +469,7 @@ namespace Schedule_I_Save_Fixer {
 		//
 		// Save Slot Methods
 		//
-
+		/// <summary>Fetch save slots detected within the specified game saves path, populating this.cbSaveSlot.</summary>
 		private void fetchSaveSlots() {
 			this.saveSlots.Clear();
 			try {
@@ -463,7 +490,7 @@ namespace Schedule_I_Save_Fixer {
 				this.cbSaveSlot_SelectedIndexChanged(this, EventArgs.Empty);
 			} catch { }
 		}
-
+		/// <summary>Populate this.dgvFixActions.</summary>
 		private void populateFixActions() {
 			Debug.Assert(this.dgvFixActions.Rows.Count == 0);
 			Debug.Assert(this.cbSaveSlot.SelectedItem != null);
@@ -487,7 +514,7 @@ namespace Schedule_I_Save_Fixer {
 			}
 			this.dgvFixActions.Rows.AddRange(rows);
 		}
-
+		/// <summary>Update the Relationship column of this.dgvCustomerRelationships.</summary>
 		private void updateCustomerRelationships() {
 			Debug.Assert(this.cbSaveSlot.SelectedItem != null);
 			var saveSlot = (SaveSlot)this.cbSaveSlot.SelectedItem;
@@ -497,7 +524,7 @@ namespace Schedule_I_Save_Fixer {
 				cell.Value = cell.Items[relationship];
 			}
 		}
-
+		/// <summary>Update the Status column of this.dgvSupplierUnlock.</summary>
 		private void updateSupplierUnlock() {
 			Debug.Assert(this.cbSaveSlot.SelectedItem != null);
 			var saveSlot = (SaveSlot)this.cbSaveSlot.SelectedItem;
@@ -507,7 +534,7 @@ namespace Schedule_I_Save_Fixer {
 				cell.Value = unlocked ? "Unlocked" : "Locked";
 			}
 		}
-
+		/// <summary>Update the Status column of this.dgvPropertyOwnership.</summary>
 		private void updatePropertyOwnership() {
 			Debug.Assert(this.cbSaveSlot.SelectedItem != null);
 			var saveSlot = (SaveSlot)this.cbSaveSlot.SelectedItem;
@@ -517,7 +544,7 @@ namespace Schedule_I_Save_Fixer {
 				cell.Value = owned ? "Owned" : "Not Owned";
 			}
 		}
-
+		/// <summary>Update the Status column of this.dgvBusinessOwnership.</summary>
 		private void updateBusinessOwnership() {
 			Debug.Assert(this.cbSaveSlot.SelectedItem != null);
 			var saveSlot = (SaveSlot)this.cbSaveSlot.SelectedItem;

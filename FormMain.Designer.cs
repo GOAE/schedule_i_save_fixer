@@ -40,12 +40,14 @@
 			this.colFixActionsFixAction = new DataGridViewTextBoxColumn();
 			this.colFixActionsFixResult = new DataGridViewTextBoxColumn();
 			this.panelFixActionsBottom = new Panel();
+			this.btnAutoFixBackups = new Button();
 			this.btnFix = new Button();
 			this.tabControlMain = new TabControl();
 			this.tabPageFixActions = new TabPage();
 			this.tabPageCustomerRelationships = new TabPage();
 			this.gbCustomers = new GroupBox();
 			this.dgvCustomerRelationships = new DataGridView();
+			this.colCustomerRelationshipRegion = new DataGridViewTextBoxColumn();
 			this.colCustomerRelationshipsNpc = new DataGridViewTextBoxColumn();
 			this.colCustomerRelationshipsRelationship = new DataGridViewComboBoxColumn();
 			this.colCustomerRelationshipsApply = new DataGridViewButtonColumn();
@@ -218,6 +220,7 @@
 			this.colFixActionsEnable.MinimumWidth = 8;
 			this.colFixActionsEnable.Name = "colFixActionsEnable";
 			this.colFixActionsEnable.ReadOnly = true;
+			this.colFixActionsEnable.ToolTipText = "Check to enable each fix action.";
 			this.colFixActionsEnable.Width = 40;
 			// 
 			// colFixActionsFilePath
@@ -227,6 +230,7 @@
 			this.colFixActionsFilePath.MinimumWidth = 8;
 			this.colFixActionsFilePath.Name = "colFixActionsFilePath";
 			this.colFixActionsFilePath.ReadOnly = true;
+			this.colFixActionsFilePath.ToolTipText = "The relative file path under the save slot.";
 			// 
 			// colFixActionsFixAction
 			// 
@@ -234,6 +238,7 @@
 			this.colFixActionsFixAction.MinimumWidth = 8;
 			this.colFixActionsFixAction.Name = "colFixActionsFixAction";
 			this.colFixActionsFixAction.ReadOnly = true;
+			this.colFixActionsFixAction.ToolTipText = "The fix action that will be attemped.";
 			this.colFixActionsFixAction.Width = 192;
 			// 
 			// colFixActionsFixResult
@@ -242,10 +247,12 @@
 			this.colFixActionsFixResult.MinimumWidth = 8;
 			this.colFixActionsFixResult.Name = "colFixActionsFixResult";
 			this.colFixActionsFixResult.ReadOnly = true;
+			this.colFixActionsFixResult.ToolTipText = "The result of attempting the fix action.";
 			this.colFixActionsFixResult.Width = 192;
 			// 
 			// panelFixActionsBottom
 			// 
+			this.panelFixActionsBottom.Controls.Add(this.btnAutoFixBackups);
 			this.panelFixActionsBottom.Controls.Add(this.btnFix);
 			this.panelFixActionsBottom.Controls.Add(this.cbEnableFileDeletion);
 			this.panelFixActionsBottom.Dock = DockStyle.Bottom;
@@ -254,6 +261,18 @@
 			this.panelFixActionsBottom.Size = new Size(740, 48);
 			this.panelFixActionsBottom.TabIndex = 1;
 			// 
+			// btnAutoFixBackups
+			// 
+			this.btnAutoFixBackups.Dock = DockStyle.Right;
+			this.btnAutoFixBackups.Location = new Point(429, 0);
+			this.btnAutoFixBackups.Name = "btnAutoFixBackups";
+			this.btnAutoFixBackups.Size = new Size(112, 48);
+			this.btnAutoFixBackups.TabIndex = 1;
+			this.btnAutoFixBackups.Text = "Backups";
+			this.toolTip.SetToolTip(this.btnAutoFixBackups, "Browse the backups directory.");
+			this.btnAutoFixBackups.UseVisualStyleBackColor = true;
+			this.btnAutoFixBackups.Click += this.btnAutoFixBackups_Click;
+			// 
 			// btnFix
 			// 
 			this.btnFix.Dock = DockStyle.Right;
@@ -261,7 +280,7 @@
 			this.btnFix.Location = new Point(541, 0);
 			this.btnFix.Name = "btnFix";
 			this.btnFix.Size = new Size(199, 48);
-			this.btnFix.TabIndex = 1;
+			this.btnFix.TabIndex = 2;
 			this.btnFix.Text = "Fix Save";
 			this.toolTip.SetToolTip(this.btnFix, "Try to automatically fix the save slot.");
 			this.btnFix.UseVisualStyleBackColor = true;
@@ -323,7 +342,7 @@
 			this.dgvCustomerRelationships.AllowUserToResizeColumns = false;
 			this.dgvCustomerRelationships.AllowUserToResizeRows = false;
 			this.dgvCustomerRelationships.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dgvCustomerRelationships.Columns.AddRange(new DataGridViewColumn[] { this.colCustomerRelationshipsNpc, this.colCustomerRelationshipsRelationship, this.colCustomerRelationshipsApply });
+			this.dgvCustomerRelationships.Columns.AddRange(new DataGridViewColumn[] { this.colCustomerRelationshipRegion, this.colCustomerRelationshipsNpc, this.colCustomerRelationshipsRelationship, this.colCustomerRelationshipsApply });
 			this.dgvCustomerRelationships.Dock = DockStyle.Fill;
 			this.dgvCustomerRelationships.Location = new Point(3, 27);
 			this.dgvCustomerRelationships.Name = "dgvCustomerRelationships";
@@ -332,6 +351,14 @@
 			this.dgvCustomerRelationships.Size = new Size(731, 457);
 			this.dgvCustomerRelationships.TabIndex = 0;
 			this.dgvCustomerRelationships.CellClick += this.dgvCustomerRelationships_CellClick;
+			// 
+			// colCustomerRelationshipRegion
+			// 
+			this.colCustomerRelationshipRegion.HeaderText = "Region";
+			this.colCustomerRelationshipRegion.MinimumWidth = 8;
+			this.colCustomerRelationshipRegion.Name = "colCustomerRelationshipRegion";
+			this.colCustomerRelationshipRegion.ReadOnly = true;
+			this.colCustomerRelationshipRegion.Width = 160;
 			// 
 			// colCustomerRelationshipsNpc
 			// 
@@ -648,10 +675,6 @@
 		private CheckBox cbEnableFileDeletion;
 		private Button btnSaveSlotOpen;
 		private ToolTip toolTip;
-		private DataGridViewCheckBoxColumn colFixActionsEnable;
-		private DataGridViewTextBoxColumn colFixActionsFilePath;
-		private DataGridViewTextBoxColumn colFixActionsFixAction;
-		private DataGridViewTextBoxColumn colFixActionsFixResult;
 		private GroupBox gbCustomers;
 		private DataGridView dgvCustomerRelationships;
 		private GroupBox gbCustomerRegions;
@@ -660,9 +683,6 @@
 		private Button btnCustomerRegionApply;
 		private ComboBox cbCustomerRegionRelationship;
 		private DataGridView dgvSupplierUnlock;
-		private DataGridViewTextBoxColumn colCustomerRelationshipsNpc;
-		private DataGridViewComboBoxColumn colCustomerRelationshipsRelationship;
-		private DataGridViewButtonColumn colCustomerRelationshipsApply;
 		private DataGridViewTextBoxColumn colSupplierUnlockDealer;
 		private DataGridViewTextBoxColumn colSupplierUnlockStatus;
 		private DataGridViewButtonColumn colSupplierUnlockLock;
@@ -679,5 +699,14 @@
 		private DataGridViewTextBoxColumn colPropertyOwnershipStatus;
 		private DataGridViewButtonColumn colPropertyOwnershipOwn;
 		private DataGridViewButtonColumn colPropertyOwnershipDisown;
+		private Button btnAutoFixBackups;
+		private DataGridViewCheckBoxColumn colFixActionsEnable;
+		private DataGridViewTextBoxColumn colFixActionsFilePath;
+		private DataGridViewTextBoxColumn colFixActionsFixAction;
+		private DataGridViewTextBoxColumn colFixActionsFixResult;
+		private DataGridViewTextBoxColumn colCustomerRelationshipRegion;
+		private DataGridViewTextBoxColumn colCustomerRelationshipsNpc;
+		private DataGridViewComboBoxColumn colCustomerRelationshipsRelationship;
+		private DataGridViewButtonColumn colCustomerRelationshipsApply;
 	}
 }
